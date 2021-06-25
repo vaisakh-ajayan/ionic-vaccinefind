@@ -1,0 +1,114 @@
+<ion-header [translucent]="true" id="toolbar-box">
+  <ion-toolbar color="#0eb48d"> 
+    <ion-avatar id="avatar">
+      <img src="https://www.vaccinefind.in/assets/image/vaccinefindlogo-new.png?version=0.8" />
+    </ion-avatar>
+    <ion-title id="title">
+      <b id="bold-text">VaccineFind.in</b>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-menu-button menu="first"></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="description" class="jumbotron ion-text-center">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <h1>Find vaccine slot easily !</h1>
+          <p id="p1">A Simple & Quick Vaccine Slot Finder for India in 11 languages.<br>Find 2 week's slot availability with a single click!</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="state-div">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>Choose State</ion-label>
+                <ion-select 
+                [(ngModel)]="selectedValue" value="{{selectedValue}}" (ionChange)="stateChange()" placeholder="state">
+                  <ion-select-option value="{{state.stateId}}" 
+                  *ngFor="let state of states">{{state.stateName}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3" *ngIf="selectedValue">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Choose District</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list *ngFor="let district of districtList">
+                <ion-item>
+                  <ion-label>{{district.districtName}}</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size-md="6" offset-md="3" class="ion-text-justify note">
+                  <b>Note: </b>
+                  <i> VaccineFind.in sources data from Co-WIN, managed and operated by Union Health Ministry, 
+                    Government of India. Due to server caching related issues and Co-WIN public API returning
+                     different data at times, there are chances that the slots here and 'non-logged-in' Co-WIN
+                      portal might differ from that shown in the 'logged-in' search portal of Co-WIN. As vaccine 
+                      slots changes rapidly, please book on Co-WIN before they become unavailable.
+                    </i>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12" size-md="6" offset-md="3">
+                  <div class="ion-text-center">Social responsibility initiative from</div>
+                </ion-col>
+                <ion-col size="6">
+                  <div class="mash">
+                    <a class="float-right" href="https://www.mashupstack.com/">
+                      <ion-thumbnail class="image-last">
+                        <img src="https://www.vaccinefind.in/assets/image/mashupstack.png" />
+                      </ion-thumbnail>
+                    </a>
+                  </div>
+                </ion-col>
+                <ion-col size="6">
+                  <div>
+                    <a href="https://cyberdome.kerala.gov.in/">
+                      <ion-thumbnail class="image-last">
+                        <img src="https://www.vaccinefind.in/assets/image/cyberdome.png" />
+                      </ion-thumbnail>
+                    </a>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

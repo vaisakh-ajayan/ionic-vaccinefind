@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center title"><b>Features</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon class="ic" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered">
+  <div class="ion-padding">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" size-md="6" offset-md="3">
+          <ion-slides pager="true" [options]="slideOpts">
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/2-savedsearch.jpg?version=0.8" alt="1">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/3-sound.jpg?version=0.8" alt="2">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/4-twoweeks.jpg?version=0.8" alt="3">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/5-lastchecked.jpg?version=0.8" alt="4">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/9-languages.jpg?version=0.8" alt="5">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/1-autocheck.jpg?version=0.8" alt="6">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/6-manualrefresh.jpg?version=0.8" alt="7">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/7-dose1dose2.jpg?version=0.8" alt="8">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/8-tablet-mobile.jpg?version=0.8" alt="9">
+            </ion-slide>
+            <ion-slide>
+              <img src="https://www.vaccinefind.in/assets/image/slider/10-fortyplus-filter.jpg?version=0.8" alt="10">
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

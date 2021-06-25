@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-label position="floating">Select Language</ion-label>
+            <ion-select value='en' [(ngModel)]="language" (ionChange)="options()">
+              <ion-select-option value="en" selected>English</ion-select-option>
+              <ion-select-option value="bn">Bengali</ion-select-option>
+              <ion-select-option value="gu">Gujarati</ion-select-option>
+              <ion-select-option value="hi">Hindi</ion-select-option>
+              <ion-select-option value="kn">Kannada</ion-select-option>
+              <ion-select-option value="ml">Malayalam</ion-select-option>
+              <ion-select-option value="mr">Marathi</ion-select-option>
+              <ion-select-option value="or">Odia (Oriya)</ion-select-option>
+              <ion-select-option value="pa">Punjabi</ion-select-option>
+              <ion-select-option value="ta">Tamil</ion-select-option>
+              <ion-select-option value="te">Telugu</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item button (click)="featuresModal()">
+            Freatures
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item button (click)="aboutModal()">About</ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

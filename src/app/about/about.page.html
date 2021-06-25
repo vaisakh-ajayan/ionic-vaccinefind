@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center title"><b>VaccineFind.in</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon class="ic" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="overflow-y: auto;" scrollable>
+  <div class="ion-padding" scrollable="true">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title color="tertiary">Overview</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="overview">
+                With VaccineFind, you can know 2 weeks of vaccine slots as they appear in the Co-WIN portal
+                just by opening the browser.
+              </div>
+              <div class="overview">
+                All you need to do is to search your vaccine slots in it just once. The next time you visit the
+                site, you wouldn't have to repeat the search. We will get all the available vaccine slots for 
+                you without a single click.
+              </div>
+              <div class="overview">
+                With support in the 11 most widely used Indian languages, people can now search for slots in 
+                their local language.
+              </div>
+              <div class="overview">
+                The site checks the Co-WIN portal continuously for new vaccine slots and alerts the user when 
+                vaccines are available. Vaccine available dates for the next two weeks are highlighted in 
+                red/green for quick understanding.
+              </div>
+              <div class="tips">
+                <ion-card-title color="tertiary">Tips to book your slots faster</ion-card-title>
+                <div>
+                  <ol><li>Set screen lock time to 'Never' or any max value in your mobile phone. You will be 
+                    automatically notified via an alarm when your preferred slots are available.<br>
+                    For example, in Redmi Note 10 Pro Android phone<br>Go to <strong>Settings</strong>
+                  &nbsp;&gt;&nbsp;<strong>Lock Screen & Password</strong>&nbsp;&gt;&nbsp;<strong>Sleep</strong>
+                  &nbsp;&gt;&nbsp;<strong>Never</strong></li><li>Set VaccineFind.in as your Chrome home page on 
+                    your mobile. So by just clicking on the Chrome browser, you can immediately know the slot 
+                    availability.<br>Go to <strong>Chrome</strong>&nbsp;&gt;&nbsp;<strong>Advanced</strong>
+                    &nbsp;&gt;&nbsp;<strong>Home Page</strong>&nbsp;&gt;&nbsp;<strong>Enter&nbsp;</strong>'https://www.vaccinefind.in'
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div >
+                <ion-card-title color="dark">Disclaimer</ion-card-title>
+                <div class="disclaimer">
+                  VaccineFind.in sources data from Co-WIN, managed and operated by Union Health Ministry, Government of India. 
+                  Due to server caching related issues and Co-WIN public API returning different data at times, there are 
+                  chances that the slots here and 'non-logged-in' Co-WIN portal might differ from that shown in the 'logged-in' 
+                  search portal of Co-WIN. As vaccine slots changes rapidly, please book on Co-WIN before they become unavailable.
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
