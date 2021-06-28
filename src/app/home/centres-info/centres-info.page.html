@@ -1,0 +1,213 @@
+<ion-header [translucent]="true" id="toolbar-box">
+  <ion-toolbar color="#0eb48d">
+    <ion-avatar id="avatar">
+      <img src="https://www.vaccinefind.in/assets/image/vaccinefindlogo-new.png?version=0.8" />
+    </ion-avatar>
+    <ion-title id="title">
+      <b id="bold-text">VaccineFind.in</b>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end" >
+      <ion-back-button fill="solid"  defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid fixed>
+      <div class="fixed-top">
+        <ion-row>
+          <ion-col *ngIf="detail" size="12">
+            <h2 class="ion-text-center">{{detail.districtName}}</h2>
+            <ion-item class="ion-float-right" lines="none" button (click)="filterModal()">
+              <ion-label>Apply Filters</ion-label><ion-icon name="options-outline"></ion-icon>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-toggle color="danger"></ion-toggle><ion-label>Mute Sound</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row class="btn-grouping">
+          <ion-col size="3" class="ion-text-center">
+            <ion-button fill="solid" shape="round" size="small" class="btn-1-3">
+              Refresh
+            </ion-button>
+          </ion-col>
+          <ion-col size="5" class="ion-text-center">
+            <ion-button fill="solid" shape="round" size="small" class="three-buttons">
+              New Search
+            </ion-button>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <ion-button fill="solid" shape="round" size="small" class="btn-1-3">
+              Go to Co-WIN
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row *ngIf="availableCapacity">
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-content class="ion-text-start">
+              <div>As per data from Co-WIN public api at : <b >{{date | date:'mediumTime'}}</b></div>
+              <div><ion-text color="primary">[View Data]</ion-text> (view the Co-WIN public API JSON response)</div>
+              <div>
+                <a class="links" href="https://www.cowin.gov.in/home"><ion-text color="primary">
+                  [Check Co-WIN]
+                </ion-text></a>
+                 (check non-loggedin Co-WIN portal for slots)
+              </div>
+              <div>Checking for new slots in <b>{{start}} seconds</b></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!availableCapacity">
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-text color="danger">
+                <h2>Currently there are no slots available. Waiting for new vaccines.</h2>
+              </ion-text>
+              <div>
+                We'll notify you with an alarm as soon as slots are available for <br>
+                <span>All Ages</span>
+                <span>All Vaccines</span>
+                <span>All Doses</span>
+                <span>All Prices</span>
+              </div>
+              <div>
+                <span class="ion-float-right">Checking for new vaccine slots from Co-WIN in</span>
+                <ion-spinner name="dots"></ion-spinner>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-segment scrollable="true" value="all" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="all">
+              All
+            </ion-segment-button>
+            <ion-segment-button value="today">
+              28 Jun
+            </ion-segment-button>
+            <ion-segment-button value="tomorrow">
+              29 Jun
+            </ion-segment-button>
+            <ion-segment-button value="day3">
+              30 Jun
+            </ion-segment-button>
+            <ion-segment-button value="day4">
+              1 Jul
+            </ion-segment-button>
+            <ion-segment-button value="day5">
+              2 Jul
+            </ion-segment-button>
+            <ion-segment-button value="day6">
+              3 Jul
+            </ion-segment-button>
+            <ion-segment-button value="day7">
+              4 Jul
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+      <ion-grid fixed class="box">
+        <ion-row class="header">
+          <ion-col size="3"><b>Date</b></ion-col>
+          <ion-col size="9"><b>Available Centers</b></ion-col>
+        </ion-row>
+        <ion-row class="listing-item">
+          <ion-col size="3">
+            <ion-row class="ion-justify-content-start">
+              <ion-col size="12">
+                <p><b>29 Jun</b></p>
+            <ion-text color="primary">
+              <p>(Tommorow)</p>
+            </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col size="9">
+            <ion-row class="ion-justify-content-start">
+              <ion-col size="12">
+                <p><b>SKV Patparganj Site-2</b></p>
+              <ion-text color="medium">
+                <span>SKV Patparganj Near Passport Sewa Kendra Opposite Sanjay Lake Delhi, 
+                  East Delhi, 110091</span>
+              </ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row class="inline-rows ion-justify-content-center">
+              <ion-col size="6"><span>COVAXIN</span></ion-col>
+            </ion-row>
+            <ion-row class="inline-rows ion-justify-content-around">
+              <ion-col size="6">
+                Dose 1: <ion-text color="danger">
+                  <span>No</span>
+                </ion-text> <br>
+                <ion-badge color="tertiary">45+</ion-badge>
+                <ion-badge color="medium">Paid</ion-badge>
+              </ion-col>
+              <ion-col size="6">
+                Dose 1: <ion-text color="success">
+                  <span>Yes</span>
+                </ion-text> <br>
+                <ion-badge color="warning">18+</ion-badge>
+                <ion-badge color="secondary">Free</ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <hr>
+        </ion-row>
+
+        <ion-row class="listing-item" (click)="cowinModal()">
+          <ion-col size="3">
+            <ion-row class="ion-justify-content-start">
+              <ion-col size="12">
+                <p><b>28 Jun</b></p>
+            <ion-text color="primary">
+              <p>(Today)</p>
+            </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col size="9">
+            <ion-row class="ion-justify-content-start">
+              <ion-col size="12">
+                <p><b>Valiyathura CSH</b></p>
+              <ion-text color="medium">
+                <span>Valiyathura Thiruvananthapuram Kerala, Thiruvananthapuram,695008</span>
+              </ion-text>
+              </ion-col>
+            </ion-row>
+            <ion-row class="inline-rows ion-justify-content-center">
+              <ion-col size="6"><span>COVISHIELD</span></ion-col>
+            </ion-row>
+            <ion-row class="inline-rows ion-justify-content-around">
+              <ion-col size="6">
+                Dose 1: <ion-text color="success">
+                  <span>Yes</span>
+                </ion-text> <br>
+                <ion-badge color="warning">18+</ion-badge>
+                <ion-badge color="secondary">Free</ion-badge>
+              </ion-col>
+              <ion-col size="6">
+                Dose 1: <ion-text color="success">
+                  <span>Yes</span>
+                </ion-text> <br>
+                <ion-badge color="warning">18+</ion-badge>
+                <ion-badge color="secondary">Free</ion-badge>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+  </div>
+</ion-content>

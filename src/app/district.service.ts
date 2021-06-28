@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class DistrictService {
 
-  private districts: District[]=[]
+  private districtDetail: District
   constructor(private http: HttpClient) { }
 
   fetchDistricts(state:number){
@@ -25,5 +25,17 @@ export class DistrictService {
         return districtArray
       })
     )
+  }
+
+  updateDistrictDetail(district:District){
+    this.districtDetail = {districtId:district.districtId, districtName: district.districtName}
+    console.log("the center is"+this.districtDetail)
+    return
+  }
+
+  getDistrictDetails(){
+    if (this.districtDetail) {
+      return this.districtDetail
+    }
   }
 }

@@ -170,6 +170,11 @@ export class HomePage {
     })
   }
 
+  updateDistrict(district:District){
+    this.districtService.updateDistrictDetail(district)
+    console.log("update ecter called")
+  }
+
   constructor(private districtService: DistrictService) {}
 
 }

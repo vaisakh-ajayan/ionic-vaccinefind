@@ -54,8 +54,11 @@
               <ion-card-title>Choose District</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <ion-list *ngFor="let district of districtList">
+              <ion-list button *ngFor="let district of districtList" (click)="updateDistrict(district)" 
+              [routerLink]="['/home',district.districtId]" class="ion-activatable ripple-parent"
+              >
                 <ion-item>
+                  <ion-ripple-effect></ion-ripple-effect>
                   <ion-label>{{district.districtName}}</ion-label>
                 </ion-item>
               </ion-list>
@@ -72,7 +75,7 @@
           <ion-card>
             <ion-card-content>
               <ion-row>
-                <ion-col size-md="6" offset-md="3" class="ion-text-justify note">
+                <ion-col class="ion-text-justify note">
                   <b>Note: </b>
                   <i> VaccineFind.in sources data from Co-WIN, managed and operated by Union Health Ministry, 
                     Government of India. Due to server caching related issues and Co-WIN public API returning

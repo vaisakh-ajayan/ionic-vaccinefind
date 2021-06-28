@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: ':districtId',
+    loadChildren: () => import('./centres-info/centres-info.module').then( m => m.CentresInfoPageModule)
   }
 ];
 

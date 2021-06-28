@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'features',
     loadChildren: () => import('./features/features.module').then( m => m.FeaturesPageModule)
   },
+  {
+    path: 'filters',
+    loadChildren: () => import('./filters/filters.module').then( m => m.FiltersPageModule)
+  },
+  {
+    path: 'go-cowin',
+    loadChildren: () => import('./go-cowin/go-cowin.module').then( m => m.GoCowinPageModule)
+  },
 ];
 
 @NgModule({

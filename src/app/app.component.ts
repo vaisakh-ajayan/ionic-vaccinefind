@@ -26,7 +26,7 @@ export class AppComponent {
   async aboutModal(){
     const modal = await this.modalController.create({
       component: AboutPage,
-      // cssClass: 'my-custom-class',
+      cssClass: 'my-custom-features-class',
       swipeToClose:true
     });
     return await modal.present()

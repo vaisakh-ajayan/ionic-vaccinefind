@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center title"><b>Your Selected Vaccination Slot</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon class="ic" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content ion-padding>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="4"><b>Center:</b></ion-col>
+              <ion-col size="8">Valiyathura CSH</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Address:</b></ion-col>
+              <ion-col size="8">Valiyathura Thiruvananthapuram Kerala</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>District:</b></ion-col>
+              <ion-col size="8">Thiruvananthapuram</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Pincode:</b></ion-col>
+              <ion-col size="8">695008</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Vaccine:</b></ion-col>
+              <ion-col size="8">COVAXIN</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Date:</b></ion-col>
+              <ion-col size="8">28 Jun 2021</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Dose 1:</b></ion-col>
+              <ion-col size="8"><ion-text color="danger">
+                <span>No</span>
+              </ion-text></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Dose 2:</b></ion-col>
+              <ion-col size="8"><ion-text color="success">
+                <span>Yes</span>
+              </ion-text></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Age:</b></ion-col>
+              <ion-col size="8"><ion-badge color="tertiary">45+</ion-badge></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4"><b>Fee:</b></ion-col>
+              <ion-col size="8"><ion-badge color="secondary">Free</ion-badge></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">
+                <ion-button color="danger" (click)="dismiss()"  fill="outline" size="small">
+                  close
+                </ion-button>
+              </ion-col>
+              <ion-col size="8">
+                <ion-button href="https://selfregistration.cowin.gov.in/" 
+                color="success" fill="outline" size="small">
+                  Go to Co-WIN
+                  <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

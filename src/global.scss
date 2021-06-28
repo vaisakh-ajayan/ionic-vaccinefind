@@ -27,9 +27,18 @@
 
 
 .my-custom-features-class .modal-wrapper{
-    height: 75%;
+   height: 75%;
    top: 25%;
    position: absolute; 
    display: block;  
    border-radius: 1em 1em 0 0;
+}
+
+.my-custom-filter-class .modal-wrapper{
+    height: 50%;
+   top: 25%;
+   bottom: 25%;
+   position: absolute; 
+   display: block;  
+   border-radius: 1em 1em 1em 1em;
 }
